@@ -1,0 +1,10 @@
+import paho.mqtt.publish as publish
+
+broker = "broker.hivemq.com"
+
+while True:
+    cmd = input("Enter ON/OFF: ")
+    if cmd == "ON":
+        publish.single("home/control", "1", hostname=broker)
+    else:
+        publish.single("home/control", "0", hostname=broker)
